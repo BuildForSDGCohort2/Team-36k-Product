@@ -13,6 +13,10 @@ const DoctorSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  phone_number: {
+    type: String,
+    required: false,
+  },
   date: {
     type: Date,
     default: Date.now,
@@ -28,4 +32,4 @@ const DoctorSchema = new mongoose.Schema({
   },
 });
 
-module.exports = mongoose.model("doctors", DoctorSchema);
+module.exports = mongoose.model("doctor", DoctorSchema);

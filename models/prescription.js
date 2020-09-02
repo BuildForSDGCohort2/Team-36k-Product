@@ -12,7 +12,6 @@ const PrescriptionSchema = new mongoose.Schema({
   signature: {
     type: String,
     required: true,
-    default: "Digipharm",
   },
   date: {
     type: Date,
