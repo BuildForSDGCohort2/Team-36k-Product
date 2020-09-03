@@ -72,17 +72,17 @@ router.delete("/:id", async function (req, res, next) {
 // Will Add and extran object to response: res.new_object;
 //////////////////////////////////////////////////////////
 async function getDoctor(req, res, next) {
-  let s_doctor;
+  let sDoctor;
   try {
-    s_doctor = await Doctor.findById(req.params.id);
-    if (s_doctor == null) {
+    sDoctor = await Doctor.findById(req.params.id);
+    if (sDoctor === null) {
       return res.status(404).json({ message: "Doctor Not Found" });
     }
   } catch (error) {
     return res.status(500).json({ message: error.message });
   }
 
-  res.doctor = s_doctor;
+  res.doctor = sDoctor;
   next();
 }
 ////////////////////////////////////////////////////////
