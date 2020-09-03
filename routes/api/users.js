@@ -32,7 +32,7 @@ router.post("/", async function (req, res, next) {
   try {
     let mUsers = await new User(req.body).save();
     res.status(201).json({ object: mUsers });
-    console.log(mUsers);
+    // console.log(mUsers);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
