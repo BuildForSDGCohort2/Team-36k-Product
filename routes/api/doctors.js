@@ -6,8 +6,8 @@ const router = express.Router();
 // @Get All Doctors
 router.get("/", async function (req, res, next) {
   try {
-    const m_doctors = await Doctor.find();
-    res.status(200).json(m_doctors);
+    const mDoctors = await Doctor.find();
+    res.status(200).json(mDoctors);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
@@ -18,8 +18,8 @@ router.get("/", async function (req, res, next) {
 // @GET One Doctor
 router.get("/:id", async function (req, res, next) {
   try {
-    const m_doctor = await Doctor.findById({ _id: req.params.id });
-    res.status(200).json(m_doctor);
+    const mDoctor = await Doctor.findById({ _id: req.params.id });
+    res.status(200).json(mDoctor);
   } catch (error) {
     res.status(500).json({ message: `User ${req.params.id} is available` });
   }
@@ -30,9 +30,9 @@ router.get("/:id", async function (req, res, next) {
 // Add a user
 router.post("/", async function (req, res, next) {
   try {
-    let m_doctor = await new Doctor(req.body).save();
-    res.status(201).json({ object: m_doctor });
-    console.log(m_doctor);
+    let mDoctor = await new Doctor(req.body).save();
+    res.status(201).json({ object: mDoctor });
+    console.log(mDoctor);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
@@ -45,9 +45,9 @@ router.post("/", async function (req, res, next) {
 router.put("/:id", async function (req, res, next) {
   try {
     await Doctor.findByIdAndUpdate({ _id: req.params.id }, req.body);
-    const m_doctor = await Doctor.findById({ _id: req.params.id });
-    // console.log(m_doctor);
-    res.status(200).json(m_doctor);
+    const mDoctor = await Doctor.findById({ _id: req.params.id });
+    // console.log(mDoctor);
+    res.status(200).json(mDoctor);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
