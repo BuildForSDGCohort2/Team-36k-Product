@@ -1,13 +1,13 @@
 const express = require("express");
-const User = require("../../models/user");
+const Doctor = require("../../models/user");
 const router = express.Router();
 
 // @GET Request
-// Get All Doctors
+// @Get All Doctors
 router.get("/", async function (req, res, next) {
   try {
-    const mUsers = await User.find();
-    res.status(200).json(mUsers);
+    const mDoctors = await Doctor.find();
+    res.status(200).json(mDoctors);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
@@ -15,13 +15,13 @@ router.get("/", async function (req, res, next) {
 });
 
 // @GET Request for one Doctor
-// GET One Doctor
+// @GET One Doctor
 router.get("/:id", async function (req, res, next) {
   try {
-    const mUsers = await User.findById({ _id: req.params.id });
-    res.status(200).json(mUsers);
+    const mDoctor = await Doctor.findById({ _id: req.params.id });
+    res.status(200).json(mDoctor);
   } catch (error) {
-    res.status(404).json({ message: `User ${req.params.id} is unavailable` });
+    res.status(500).json({ message: `User ${req.params.id} is available` });
   }
   next();
 });
@@ -30,24 +30,24 @@ router.get("/:id", async function (req, res, next) {
 // Add a user
 router.post("/", async function (req, res, next) {
   try {
-    let mUsers = await new User(req.body).save();
-    res.status(201).json({ object: mUsers });
-    // console.log(mUsers);
+    let mDoctor = await new Doctor(req.body).save();
+    res.status(201).json({ object: mDoctor });
+    // console.log(mDoctor);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
   next();
 });
 
-// @PUT Request for updating User
+// @PUT Request for updating Doctor
 // Update User
 // router.put("/:id", getDoctor, async function (req, res, next) {
 router.put("/:id", async function (req, res, next) {
   try {
-    await User.findByIdAndUpdate({ _id: req.params.id }, req.body);
-    const mUsers = await User.findById({ _id: req.params.id });
-    // console.log(mUsers);
-    res.status(200).json(mUsers);
+    await Doctor.findByIdAndUpdate({ _id: req.params.id }, req.body);
+    const mDoctor = await Doctor.findById({ _id: req.params.id });
+    // console.log(mDoctor);
+    res.status(200).json(mDoctor);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
@@ -58,7 +58,7 @@ router.put("/:id", async function (req, res, next) {
 // Delete User
 router.delete("/:id", async function (req, res, next) {
   try {
-    await User.findByIdAndRemove({ _id: req.params.id });
+    await Doctor.findByIdAndRemove({ _id: req.params.id });
     res.status(200).json({ message: "Deleted the user" });
   } catch (error) {
     res.status(404).json({ message: error.message });
@@ -71,18 +71,18 @@ router.delete("/:id", async function (req, res, next) {
 // A particular id: will be used by PATCH/PUT & DEL
 // Will Add and extran object to response: res.new_object;
 //////////////////////////////////////////////////////////
-async function getUser(req, res, next) {
-  let sUser;
+async function getDoctor(req, res, next) {
+  let sDoctor;
   try {
-    sUser = await User.findById(req.params.id);
-    if (sUser === null) {
-      return res.status(404).json({ message: "User Not Found" });
+    sDoctor = await Doctor.findById(req.params.id);
+    if (sDoctor === null) {
+      return res.status(404).json({ message: "Doctor Not Found" });
     }
   } catch (error) {
     return res.status(500).json({ message: error.message });
   }
 
-  res.doctor = sUser;
+  res.doctor = sDoctor;
   next();
 }
 ////////////////////////////////////////////////////////
