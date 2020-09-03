@@ -1,11 +1,11 @@
 const mongoose = require("mongoose");
 
 const DoctorSchema = new mongoose.Schema({
-  first_name: {
+  firstName: {
     type: String,
     required: true,
   },
-  last_name: {
+  lastName: {
     type: String,
     required: true,
   },
@@ -13,7 +13,7 @@ const DoctorSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  phone_number: {
+  phoneNumber: {
     type: String,
     required: false,
   },

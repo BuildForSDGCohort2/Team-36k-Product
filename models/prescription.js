@@ -5,6 +5,10 @@ const PrescriptionSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  ailments: {
+    type: [String],
+    required: true,
+  },
   dosage: {
     type: String,
     required: true,
@@ -19,4 +23,4 @@ const PrescriptionSchema = new mongoose.Schema({
   },
 });
 
-module.exports = mongoose.model("Prescriptions", PrescriptionSchema);
+module.exports = mongoose.model("prescriptions", PrescriptionSchema);

@@ -1,11 +1,35 @@
 const mongoose = require("mongoose");
+// const Prescriptions = require("../models/prescription");
 
-const UserSchema = new mongoose.Schema({
-  first_name: {
+const PrescriptionSchema = new mongoose.Schema({
+  name: {
     type: String,
     required: true,
   },
-  last_name: {
+  ailments: {
+    type: [String],
+    required: true,
+  },
+  dosage: {
+    type: String,
+    required: true,
+  },
+  signature: {
+    type: String,
+    required: true,
+  },
+  date: {
+    type: Date,
+    default: Date.now,
+  },
+});
+
+const UserSchema = new mongoose.Schema({
+  firstName: {
+    type: String,
+    required: true,
+  },
+  lastName: {
     type: String,
     required: true,
   },
@@ -22,7 +46,10 @@ const UserSchema = new mongoose.Schema({
     required: false,
     default: "Unset",
   },
-  prescriptions: [Prescritions],
+  prescriptions: {
+    type: [PrescriptionSchema],
+    required: false,
+  },
 });
 
-module.exports = mongoose.model("Users", UserSchema);
+module.exports = mongoose.model("user", UserSchema);

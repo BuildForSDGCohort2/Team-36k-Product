@@ -1,5 +1,5 @@
 const express = require("express");
-const Doctor = require("../../models/doctor");
+const Doctor = require("../../models/user");
 const router = express.Router();
 
 // @GET Request
