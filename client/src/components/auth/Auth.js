@@ -1,19 +1,20 @@
 import React from "react";
 import Login from "./Login";
 import Signup from "./Signup";
-import classes from "./auth.module.css";
+import classes from "./Auth.module.css";
 
 class Auth extends React.Component {
   state = {
     isLogginIn: false,
-    componentState: {},
+    authComponentState: {},
   };
 
-  activeStyle = { backgroundColor: "aqua" };
-
-  changeAuthSate() {
-    this.setState({ isLogginIn: !this.state.isLogginIn });
-  }
+  activeStyle = {
+    backgroundColor: "aqua",
+    color: "white",
+    border: "none",
+    fontFamily: "Helvetica",
+  };
 
   render() {
     return (
@@ -30,13 +31,15 @@ class Auth extends React.Component {
           <div className={classes.FormToggle}>
             <button
               style={!this.state.isLogginIn ? this.activeStyle : {}}
-              onClick={() => this.changeAuthSate()}
+              onClick={() => {
+                this.setState({ isLogginIn: false });
+              }}
             >
               Signup
             </button>
             <button
               style={this.state.isLogginIn ? this.activeStyle : {}}
-              onClick={() => this.changeAuthSate()}
+              onClick={() => this.setState({ isLogginIn: true })}
             >
               Login
             </button>

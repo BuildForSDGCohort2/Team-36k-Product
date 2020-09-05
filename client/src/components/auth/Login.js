@@ -1,10 +1,8 @@
 import React from "react";
-import classes from "./auth.module.css";
+import classes from "./Auth.module.css";
 
 class Login extends React.Component {
   state = {
-    firstName: "",
-    lastName: "",
     email: "",
     password: "",
   };
@@ -40,6 +38,7 @@ class Login extends React.Component {
             className={classes.Button}
             onClick={(e) => this.onSubmit(e)}
           />
+          {/* <button type="submit"></button> */}
         </form>
       </div>
     );
