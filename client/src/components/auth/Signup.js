@@ -29,12 +29,12 @@ class Signup extends React.Component {
         password,
         accountType,
       };
-      console.log("Credentials: ", this.credentials);
+      // console.log("Credentials: ", this.credentials);
     } else {
       alert("wrong password");
     }
 
-    console.log("State Values: " + this.state);
+    // console.log("State Values: " + this.state);
     this.setState({
       firstName: "",
       lastName: "",
