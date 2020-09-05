@@ -1,9 +1,21 @@
 import React from "react";
-import logo from "./logo.svg";
+import Auth from "./components/auth/Auth";
+import Main from "./components/main/Main";
 import "./App.css";
 
-function App() {
-  return <div className="App"></div>;
+class App extends React.Component {
+  state = {
+    isAuthenticated: false,
+  };
+
+  render() {
+    return (
+      <div className="App">
+        <Auth />
+        {/* <Main /> */}
+      </div>
+    );
+  }
 }
 
 export default App;
