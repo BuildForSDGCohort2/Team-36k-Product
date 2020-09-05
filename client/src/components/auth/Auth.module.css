@@ -5,21 +5,13 @@
 .Container {
   display: flex;
   flex-direction: row;
-  /* align-items: center; */
-  /* background-color: aquamarine; */
   justify-items: center;
   justify-content: center;
   width: 70%;
-  margin-left: 12.5%;
-  margin-right: 12.5%;
-  margin-top: 5%;
+  margin: 5% 12.5% 0 12.5%;
   height: 60%;
   box-shadow: 2px 2px 4px grey;
-  /* padding: 2.5%; */
-  padding-top: 2%;
-  padding-bottom: 2%;
-  padding-left: 2.5%;
-  padding-right: 2.5%;
+  padding: 2% 2.5%;
 }
 
 .Radio,
@@ -39,7 +31,6 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  /* background-color: aqua; */
 }
 
 .FormToggle {
@@ -69,10 +60,7 @@
   display: block;
   height: 32px;
   width: 85%;
-  margin-left: auto;
-  margin-right: 6%;
-  margin-top: 2%;
-  margin-bottom: 2%;
+  margin: 2% 6% 2% auto;
   position: relative;
   border-radius: 4px;
   border: none;
