@@ -1,5 +1,6 @@
 import React from "react";
 import classes from "./Auth.module.css";
+import healthPng from "../../assets/health.png";
 
 class Login extends React.Component {
   state = {
@@ -14,7 +15,7 @@ class Login extends React.Component {
       <div>
         <div>
           <img
-            src="./health.png"
+            src={healthPng}
             style={{ height: "200px", width: "200px" }}
             alt=""
           />

@@ -1,0 +1,29 @@
+* {
+  margin: 0;
+}
+
+.Container {
+  display: flex;
+  flex-direction: row;
+}
+
+.Container__Header {
+  background-color: aqua;
+  position: sticky;
+}
+
+.Container__SideBar {
+  align-self: start;
+  /* height: 80vh; */
+  flex: 1;
+}
+
+.Container__Main {
+  height: auto;
+  flex: 4;
+}
+
+.Container__Footer {
+  background-color: brown;
+  flex: 1;
+}
