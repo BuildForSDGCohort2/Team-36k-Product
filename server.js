@@ -6,7 +6,7 @@ const path = require("path");
 // Create express server instance
 const app = express();
 // DB Config
-const db = require("./config/keys").mongoURI;
+const db = require("./config/keys").MONGODB_URI;
 
 // Connect to MongoDB
 mongoose
@@ -42,8 +42,8 @@ if (process.env.NODE_ENV === "production") {
   app.get("*", (req, res) => {
     res.sendFile(path.resolve(__dirname, "/client", "build", "index.html"));
   });
-  app.use("/api/users", usersRoutes); /* Use Users Routes */
-  app.use("/api/doctors", doctorsRoutes); /* Use Doctores Routes */
+  app.use("*/api/users", usersRoutes); /* Use Users Routes */
+  app.use("*/api/doctors", doctorsRoutes); /* Use Doctores Routes */
 }
 
 // Setup the ports
