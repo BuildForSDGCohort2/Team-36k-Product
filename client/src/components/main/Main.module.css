@@ -14,8 +14,8 @@
 
 .Container__SideBar {
   align-self: start;
-  /* height: 80vh; */
   flex: 1;
+  /* height: 80vh; */
 }
 
 .Container__Main {

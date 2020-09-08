@@ -10,7 +10,7 @@ const db = require("./config/keys").MONGODB_URI;
 
 // Connect to MongoDB
 mongoose
-  .connect(process.env.MONGODB_URI || db, {
+  .connect(process.env.MONGODB_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify: false,
@@ -21,8 +21,7 @@ mongoose
   .catch((err) => console.log(err));
 
 // Setup Middle Wares
-// // JSON Middleware
-// app.use(bodyParser.json());
+// JSON Middleware
 app.use(express.json());
 
 // Use Routes
