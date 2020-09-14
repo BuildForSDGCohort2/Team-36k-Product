@@ -3,7 +3,7 @@ const User = require("../../models/user");
 const router = express.Router();
 
 // @GET Request
-// Get All Doctors
+// Get All Users
 router.get("/", async function (req, res, next) {
   try {
     const mUsers = await User.find();
@@ -14,8 +14,8 @@ router.get("/", async function (req, res, next) {
   next();
 });
 
-// @GET Request for one Doctor
-// GET One Doctor
+// @GET Request for one User
+// GET One User
 router.get("/:id", async function (req, res, next) {
   try {
     const mUsers = await User.findById({ _id: req.params.id });
@@ -26,7 +26,7 @@ router.get("/:id", async function (req, res, next) {
   next();
 });
 
-// @POST request for adding a Doctor
+// @POST request for adding a User
 // Add a user
 router.post("/", async function (req, res, next) {
   try {
