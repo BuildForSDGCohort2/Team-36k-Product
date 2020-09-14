@@ -22,11 +22,12 @@
   width: 100%;
   height: 100%;
 }
-.SideBar__Item {
-}
 
-.SideBar__Item:hover {
-}
+/* .SideBar__Item {
+} */
+
+/* .SideBar__Item:hover {
+} */
 
 @media (max-width: 768px) {
   .SideBar {
