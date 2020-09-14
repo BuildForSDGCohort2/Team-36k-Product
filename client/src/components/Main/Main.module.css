@@ -1,0 +1,21 @@
+.Main__Container {
+  display: flex;
+  flex-direction: row;
+}
+
+.Main__Container__SideBar {
+  height: inherit;
+  height: 100%;
+}
+
+.Main__Container_Content {
+  /* display: flex;
+  flex-direction: column; */
+  height: 100%;
+}
+
+@media (min-width: 768px) {
+  .Main__Container_Content {
+    margin-left: 356px;
+  }
+}

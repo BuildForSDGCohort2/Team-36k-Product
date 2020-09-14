@@ -1,0 +1,21 @@
+.Hamburger__Toggle {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  background: transparent;
+  border: none;
+  height: 24px;
+  width: 28px;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.Hamburger__Toggle:hover {
+  cursor: pointer;
+}
+
+.Hamburger__Stripe {
+  width: 100%;
+  height: 2px;
+  background-color: white;
+}
