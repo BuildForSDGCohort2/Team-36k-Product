@@ -5,6 +5,7 @@
   position: fixed;
   top: 0;
   left: 0;
+  
   /* box-shadow: 2px 2px 5px grey; */
 }
 
@@ -22,6 +23,7 @@
   font-size: 36px;
   margin-left: 25px;
 }
+
 .NavBar__Spacer {
   flex: 1;
 }
