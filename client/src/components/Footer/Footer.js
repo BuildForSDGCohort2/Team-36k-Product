@@ -5,7 +5,7 @@ function Footer() {
   return (
     <div className={classes.Footer}>
       <div className={classes.Footer__Links}>
-        <p>Digipharm@2020</p>
+        <span className={classes.Footer__Links_Item}>Digipharm@2020</span>
       </div>
     </div>
   );

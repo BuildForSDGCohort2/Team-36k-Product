@@ -1,0 +1,22 @@
+.Footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: aqua;
+  padding: 1%;
+  width: 100%;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  height: 36px;
+}
+
+.Footer__Links {
+  display: flex;
+  justify-content: center;
+  color: antiquewhite;
+}
+
+.Footer__Links_Item {
+  font-size: 22px;
+}

@@ -1,4 +1,10 @@
+.Content {
+  height: 100%;
+}
+
 .Container {
   display: flex;
+  justify-content: center;
+  flex: 1;
   flex-wrap: wrap;
 }

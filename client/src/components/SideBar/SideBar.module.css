@@ -1,26 +1,36 @@
-.SideBarContainer {
+.SideBar {
+  display: flex;
+  position: fixed;
+  z-index: 200;
+  align-items: center;
+  flex-direction: column;
   background-color: whitesmoke;
   box-shadow: 1px 2px 5px grey;
-  height: 88vh;
+  width: 70%;
+  max-width: 356px;
+  margin-top: 56px;
+  height: calc(100% - 36px);
 }
-.SideBar__ProfileImage {
-  height: 60%;
-  width: 60%;
-  margin: 5% 0;
+
+.SideBar__Profile {
+  border: 1px solid black;
+  /* height: 2 50px; */
+  width: 80%;
+  height: 250px;
+}
+
+.SideBar__Profile_Image {
+  width: 100%;
+  height: 100%;
 }
 .SideBar__Item {
-  font-family: "Powerline";
-  border-radius: 50px;
-  font-size: 32px;
-  background-color: rgba(127, 255, 212, 0.503);
-  color: rgb(13, 229, 233);
-  margin: 5% 0;
-  padding: 5% 0;
-  font-weight: 900;
 }
 
 .SideBar__Item:hover {
-  cursor: pointer;
-  color: rgba(231, 245, 240, 0.918);
-  background-color: rgb(13, 229, 233);
+}
+
+@media (max-width: 768px) {
+  .SideBar {
+    display: none;
+  }
 }

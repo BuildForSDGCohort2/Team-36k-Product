@@ -1,18 +1,14 @@
 import React, { Component } from "react";
-import classes from "./SideBar.module.css";
 import avatar from "../../assets/avatar.png";
+import classes from "./SideBar.module.css";
 
 export class SideBar extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return (
-      <div className={classes.SideBarContainer}>
-        <div>
+      <div className={classes.SideBar}>
+        <div className={classes.SideBar__Profile}>
           <img
-            className={classes.SideBar__ProfileImage}
+            className={classes.SideBar__Profile_Image}
             src={avatar}
             alt="avatar"
           />
