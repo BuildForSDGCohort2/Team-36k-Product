@@ -4,8 +4,16 @@ import classes from "./SideBar.module.css";
 
 export class SideBar extends Component {
   render() {
+    console.log("Side Bar Status: " + this.props.open);
+
     return (
-      <div className={classes.SideBar}>
+      <div
+        className={
+          this.props.open
+            ? `${classes.SideBar} ${classes.Open}`
+            : `${classes.SideBar}`
+        }
+      >
         <div className={classes.SideBar__Profile}>
           <img
             className={classes.SideBar__Profile_Image}

@@ -9,11 +9,14 @@ import Footer from "./components/Footer/Footer";
 class App extends React.Component {
   state = {
     isAuthenticated: false,
-    isDrawerToggled: false,
+    sideDrawerOpen: false,
   };
 
-  navButtonClickHandler = (isOpen) => {
-    // console.log("Hamburger Clicked: " + isOpen);
+  drawerButtonClickHandler = () => {
+    // console.log("Hamburger Clicked: " + this.state.sideDrawerOpen);
+    this.setState((prevState) => {
+      return { sideDrawerOpen: !prevState.sideDrawerOpen };
+    });
   };
 
   render() {
@@ -21,10 +24,10 @@ class App extends React.Component {
       <div className="App">
         {/* <Auth /> */}
         <nav className="Nav">
-          <Header openSideMenu={this.navButtonClickHandler} />
+          <Header drawerButtonClicked={this.drawerButtonClickHandler} />
         </nav>
         <main className="Main">
-          <Main />
+          <Main openSideMenu={this.state.sideDrawerOpen} />
         </main>
         <footer className="Footer">
           <Footer />

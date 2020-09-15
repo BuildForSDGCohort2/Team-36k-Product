@@ -1,17 +1,19 @@
-.Main__Container {
-  /* display: flex;
+/* .Main__Container {
+  display: flex;
   flex-direction: row;
   position: absolute;
   margin-top: 56px;
   z-index: -100;
-  margin-bottom: 56px; */
+  margin-bottom: 56px;
+} */
+
+.Main__Container__SideBar {
+  z-index: 250;
 }
 
-/* .Main__Container__SideBar {
-} */
-
-/* .Main__Container_Content {
-} */
+.Main__Container_Content {
+  z-index: 100;
+}
 
 @media (min-width: 768px) {
   .Main__Container_Content {
