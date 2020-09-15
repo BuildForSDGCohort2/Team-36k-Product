@@ -2,7 +2,6 @@ import React from "react";
 import Auth from "./components/Auth/Auth";
 import Main from "./components/Main/Main";
 import Header from "./components/Header/Header";
-import SideBar from "./components/SideBar/SideBar";
 
 import "./App.css";
 import Footer from "./components/Footer/Footer";

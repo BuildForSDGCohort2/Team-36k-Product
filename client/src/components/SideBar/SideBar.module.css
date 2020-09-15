@@ -43,6 +43,7 @@
   padding: 0.5rem 0;
   color: white;
   background-color: aqua;
+  text-decoration: none;
 }
 
 .SideBar__Item:hover,
