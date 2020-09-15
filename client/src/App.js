@@ -20,13 +20,13 @@ class App extends React.Component {
     return (
       <div className="App">
         {/* <Auth /> */}
-        <nav>
+        <nav className="Nav">
           <Header openSideMenu={this.navButtonClickHandler} />
         </nav>
-        <main>
+        <main className="Main">
           <Main />
         </main>
-        <footer>
+        <footer className="Footer">
           <Footer />
         </footer>
       </div>

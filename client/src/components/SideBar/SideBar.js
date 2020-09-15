@@ -13,11 +13,13 @@ export class SideBar extends Component {
             alt="avatar"
           />
         </div>
-        <div className={classes.SideBar__Item}>Dashboard</div>
-        <div className={classes.SideBar__Item}>Health Track</div>
-        <div className={classes.SideBar__Item}>Profile</div>
-        <div className={classes.SideBar__Item}>About</div>
-        <div className={classes.SideBar__Item}>Logout</div>
+        <div className={classes.SideBar__Items}>
+          <div className={classes.SideBar__Item}>Dashboard</div>
+          <div className={classes.SideBar__Item}>Health Track</div>
+          <div className={classes.SideBar__Item}>Profile</div>
+          <div className={classes.SideBar__Item}>About</div>
+          <div className={classes.SideBar__Item}>Logout</div>
+        </div>
       </div>
     );
   }

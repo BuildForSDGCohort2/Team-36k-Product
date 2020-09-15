@@ -1,21 +1,20 @@
 .Main__Container {
-  display: flex;
-  flex-direction: row;
-}
-
-.Main__Container__SideBar {
-  height: inherit;
-  height: 100%;
-}
-
-.Main__Container_Content {
   /* display: flex;
-  flex-direction: column; */
-  height: 100%;
+  flex-direction: row;
+  position: absolute;
+  margin-top: 56px;
+  z-index: -100;
+  margin-bottom: 56px; */
 }
+
+/* .Main__Container__SideBar {
+} */
+
+/* .Main__Container_Content {
+} */
 
 @media (min-width: 768px) {
   .Main__Container_Content {
-    margin-left: 356px;
+    margin-left: 250px;
   }
 }

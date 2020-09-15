@@ -9,6 +9,7 @@
   left: 0;
   bottom: 0;
   height: 24px;
+  z-index: 500;
 }
 
 .Footer__Links {

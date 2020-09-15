@@ -3,9 +3,9 @@ import HamburgerIcon from "./HamburgerIcon/HamburgerIcon";
 import classes from "./Header.module.css";
 
 class Header extends React.Component {
-  // navButtonClicked = function (isOpen) {
-  //   console.log("Nav Clicked Header: " + isOpen);
-  // };
+  navButtonClicked = function (isOpen) {
+    console.log("Nav Clicked Header: " + isOpen);
+  };
 
   render() {
     return (

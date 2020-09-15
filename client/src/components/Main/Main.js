@@ -18,6 +18,7 @@ class Main extends React.Component {
         <div className={classes.Main__Container__SideBar}>
           <SideBar />
         </div>
+
         {/* Main Window Container */}
         <div className={classes.Main__Container_Content}>
           <Content />
