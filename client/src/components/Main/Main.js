@@ -8,11 +8,16 @@ import About from "../Content/About/About";
 import DashBoard from "../Content/DashBoard/DashBoard";
 
 import classes from "./Main.module.css";
+import BackDrop from "../BackDrop/BackDrop";
 
 class Main extends React.Component {
   state = {};
 
   render() {
+    let backDrop = this.props.openSideMenu ? (
+      <BackDrop clicked={this.props.clickBackDrop} />
+    ) : null;
+
     return (
       <Router>
         <div className={classes.Main__Container}>
@@ -21,13 +26,15 @@ class Main extends React.Component {
             <SideBar open={this.props.openSideMenu} />
           </div>
 
+          {/* Render BackDrop when Side Menu is Opened */}
+          {backDrop}
           {/* Main Window Container */}
           <div className={classes.Main__Container_Content}>
             <Switch>
-              <Route path="/dashboard" component={DashBoard} />
               <Route path="/healthtrack" component={HealthTrack} />
               <Route path="/profile" component={Profile} />
-              <Route path="/About" component={About} />
+              <Route path="/about" component={About} />
+              <Route path="/" component={DashBoard} />
             </Switch>
           </div>
         </div>

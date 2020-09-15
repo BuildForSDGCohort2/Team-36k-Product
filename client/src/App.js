@@ -18,6 +18,10 @@ class App extends React.Component {
     });
   };
 
+  backDropClickHandler = () => {
+    this.setState({ sideDrawerOpen: false });
+  };
+
   render() {
     return (
       <div className="App">
@@ -26,7 +30,10 @@ class App extends React.Component {
           <Header drawerButtonClicked={this.drawerButtonClickHandler} />
         </nav>
         <main className="Main">
-          <Main openSideMenu={this.state.sideDrawerOpen} />
+          <Main
+            openSideMenu={this.state.sideDrawerOpen}
+            clickBackDrop={this.backDropClickHandler}
+          />
         </main>
         <footer className="Footer">
           <Footer />

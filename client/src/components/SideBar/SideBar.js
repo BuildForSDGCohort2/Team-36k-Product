@@ -36,7 +36,7 @@ export class SideBar extends Component {
           <Link style={this.linkStyle} to="/profile">
             <div className={classes.SideBar__Item}>Profile</div>
           </Link>
-          <Link style={this.linkStyle} to="/About">
+          <Link style={this.linkStyle} to="about">
             <div className={classes.SideBar__Item}>About</div>
           </Link>
           <div className={classes.SideBar__Item}>Logout</div>
