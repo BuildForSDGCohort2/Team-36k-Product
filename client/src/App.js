@@ -13,7 +13,7 @@ class App extends React.Component {
   };
 
   navButtonClickHandler = (isOpen) => {
-    console.log("Hamburger Clicked: " + isOpen);
+//     console.log("Hamburger Clicked: " + isOpen);
   };
 
   render() {
