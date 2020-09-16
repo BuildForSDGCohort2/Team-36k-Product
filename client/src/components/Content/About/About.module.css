@@ -1,14 +1,29 @@
-.Content {
+.Container {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
   height: 100%;
-  margin-top: 56px;
-  margin-bottom: 56px;
+  width: 80%;
+  margin: 56px auto;
   z-index: 100;
   background-color: tomato;
 }
 
-.Container {
+.Container__Content {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   flex: 1;
-  flex-wrap: wrap;
+  /* justify-content: center; */
+}
+
+.Container__Title {
+  align-self: center;
+  justify-self: center;
+  color: black;
+  height: 52px;
+}
+
+.Container__Main {
+  height: 80%;
+  flex: 1;
 }
