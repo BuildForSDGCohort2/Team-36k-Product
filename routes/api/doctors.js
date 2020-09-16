@@ -1,6 +1,7 @@
 const express = require("express");
-const Doctor = require("../../models/user");
+const Doctor = require("../../models/doctor");
 const router = express.Router();
+const bcrypt = require("bcrypt");
 
 // @GET Request
 // @Get All Doctors
@@ -27,10 +28,23 @@ router.get("/:id", async function (req, res, next) {
 });
 
 // @POST request for adding a Doctor
-// Add a user
+// Add a doctor
 router.post("/", async function (req, res, next) {
   try {
-    let mDoctor = await new Doctor(req.body).save();
+    const salt = await bcrypt.genSalt();
+    const hashedPassword = await bcrypt.hash(req.body.password, salt);
+
+    // let mDoctor = await new Doctor(req.body).save();
+
+    let mDoctor = await new Doctor({
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
+      email: req.body.email,
+      password: hashedPassword,
+      phoneNumber: req.body.phoneNumber,
+      qualification: req.body.qualification,
+    }).save();
+
     res.status(201).json({ object: mDoctor });
     // console.log(mDoctor);
   } catch (error) {
