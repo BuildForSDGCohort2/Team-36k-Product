@@ -2,9 +2,9 @@ import React from "react";
 import Auth from "./components/Auth/Auth";
 import Main from "./components/Main/Main";
 import Header from "./components/Header/Header";
+import Footer from "./components/Footer/Footer";
 
 import "./App.css";
-import Footer from "./components/Footer/Footer";
 class App extends React.Component {
   state = {
     isAuthenticated: false,
@@ -23,9 +23,8 @@ class App extends React.Component {
   };
 
   render() {
-    return (
-      <div className="App">
-        {/* <Auth /> */}
+    let main = (
+      <div>
         <nav className="Nav">
           <Header drawerButtonClicked={this.drawerButtonClickHandler} />
         </nav>
@@ -38,6 +37,13 @@ class App extends React.Component {
         <footer className="Footer">
           <Footer />
         </footer>
+      </div>
+    );
+
+    return (
+      <div className="App">
+        <Auth />
+        {/* {main} */}
       </div>
     );
   }

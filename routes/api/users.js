@@ -1,6 +1,7 @@
 const express = require("express");
 const User = require("../../models/user");
 const router = express.Router();
+const bcrypt = require("bcrypt");
 
 // @GET Request
 // Get All Users
@@ -30,7 +31,21 @@ router.get("/:id", async function (req, res, next) {
 // Add a user
 router.post("/", async function (req, res, next) {
   try {
-    let mUsers = await new User(req.body).save();
+    const salt = await bcrypt.genSalt();
+    const hashedPassword = await bcrypt.hash(req.body.password, salt);
+
+    // console.log("Salt: " + salt);
+    // console.log("Password: " + hashedPassword);
+
+    // let mUsers = await new User(req.body).save();
+
+    let mUsers = await new User({
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
+      email: req.body.email,
+      password: hashedPassword,
+    }).save();
+
     res.status(201).json({ object: mUsers });
     // console.log(mUsers);
   } catch (error) {
