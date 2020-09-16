@@ -7,15 +7,22 @@
   background-color: whitesmoke;
   box-shadow: 1px 2px 5px grey;
   width: 70%;
-  max-width: 356px;
-  margin-top: 56px;
+  max-width: 250px;
   height: calc(100% - 36px);
+  margin-top: 56px;
+  margin-bottom: 56px;
+  z-index: 300;
+  transition: transform 0.3s ease-in-out;
+
+  /* margin-top: 56px; */
 }
 
 .SideBar__Profile {
-  border: 1px solid black;
+  /* border: 1px solid black; */
+
   width: 80%;
-  height: 250px;
+  height: 200px;
+  margin-top: 10px;
 }
 
 .SideBar__Profile_Image {
@@ -23,16 +30,43 @@
   height: 100%;
 }
 
-/* .SideBar__Item {
+.SideBar__Items {
+  flex: 1;
+  width: 100%;
+  justify-content: space-evenly;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 72px;
 }
- */
 
-/* .SideBar__Item:hover {
+.SideBar__Item {
+  font-size: 2rem;
+  width: 100%;
+  padding: 0.5rem 0;
+  color: white;
+  background-color: rgb(3, 147, 147);
+  text-decoration: none;
 }
- */
+
+.SideBar__Item:hover,
+.SideBar__Item:active {
+  cursor: pointer;
+  background-color: aquamarine;
+  color: rgb(3, 147, 147);
+}
 
 @media (max-width: 768px) {
   .SideBar {
-    display: none;
+    /* display: none; */
+
+    transform: translateX(-200%);
+    transition: transform 0.5s ease-in-out;
+  }
+
+  .Open {
+    /* display: flex; */
+
+    transform: translateX(0);
+    transition: transform 0.5s ease-in-out;
   }
 }

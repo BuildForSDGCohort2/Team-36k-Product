@@ -1,32 +1,12 @@
 import React, { Component } from "react";
-import Card from "../Card/Card";
-import classes from "./Content.module.css";
-import Footer from "../Footer/Footer";
+import Card from "../../Card/Card";
+import classes from "./DashBoard.module.css";
 
-export class Content extends Component {
+export class DashBoard extends Component {
   render() {
     return (
       <div className={classes.Content}>
         <div className={classes.Container}>
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
           <Card />
           <Card />
           <Card />
@@ -92,4 +72,4 @@ export class Content extends Component {
   }
 }
 
-export default Content;
+export default DashBoard;

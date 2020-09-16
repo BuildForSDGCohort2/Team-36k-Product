@@ -3,19 +3,15 @@ import HamburgerIcon from "./HamburgerIcon/HamburgerIcon";
 import classes from "./Header.module.css";
 
 class Header extends React.Component {
-  // navButtonClicked = function (isOpen) {
-  //   console.log("Nav Clicked Header: " + isOpen);
-  // };
-
   render() {
     return (
       <div className={classes.NavBar}>
         <div className={classes.NavBar__Navigation}>
           <div
-            onClick={() => this.props.openSideMenu(false)}
+            onClick={() => this.props.drawerButtonClicked()}
             className={classes.NavBar__Button}
           >
-            <HamburgerIcon openSideMenu={this.navButtonClicked} />
+            <HamburgerIcon />
           </div>
           <div className={classes.NavBar__Logo}>DigiPharm</div>
           <div className={classes.NavBar__Spacer}></div>

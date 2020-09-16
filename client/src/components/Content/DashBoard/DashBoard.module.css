@@ -1,0 +1,16 @@
+.Content {
+  position: fixed;
+  height: 100%;
+  /* width: 80%; */
+  margin-top: 56px;
+  margin-bottom: 56px;
+  background-color: green;
+  z-index: 100;
+}
+
+.Container {
+  display: flex;
+  justify-content: center;
+  flex: 1;
+  flex-wrap: wrap;
+}

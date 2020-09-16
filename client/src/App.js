@@ -2,31 +2,40 @@ import React from "react";
 import Auth from "./components/Auth/Auth";
 import Main from "./components/Main/Main";
 import Header from "./components/Header/Header";
-import SideBar from "./components/SideBar/SideBar";
 
 import "./App.css";
 import Footer from "./components/Footer/Footer";
 class App extends React.Component {
   state = {
     isAuthenticated: false,
-    isDrawerToggled: false,
+    sideDrawerOpen: false,
   };
 
-  navButtonClickHandler = (isOpen) => {
-//     console.log("Hamburger Clicked: " + isOpen);
+  drawerButtonClickHandler = () => {
+    // console.log("Hamburger Clicked: " + this.state.sideDrawerOpen);
+    this.setState((prevState) => {
+      return { sideDrawerOpen: !prevState.sideDrawerOpen };
+    });
+  };
+
+  backDropClickHandler = () => {
+    this.setState({ sideDrawerOpen: false });
   };
 
   render() {
     return (
       <div className="App">
         {/* <Auth /> */}
-        <nav>
-          <Header openSideMenu={this.navButtonClickHandler} />
+        <nav className="Nav">
+          <Header drawerButtonClicked={this.drawerButtonClickHandler} />
         </nav>
-        <main>
-          <Main />
+        <main className="Main">
+          <Main
+            openSideMenu={this.state.sideDrawerOpen}
+            clickBackDrop={this.backDropClickHandler}
+          />
         </main>
-        <footer>
+        <footer className="Footer">
           <Footer />
         </footer>
       </div>

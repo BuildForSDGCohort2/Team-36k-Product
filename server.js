@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const path = require("path");
+require("dotenv").config();
 // const bodyParser = require("body-parser");
 
 // Create express server instance
@@ -10,7 +11,7 @@ const db = require("./config/keys").MONGODB_URI;
 
 // Connect to MongoDB
 mongoose
-  .connect(process.env.MONGODB_URI, {
+  .connect(process.env.MONGODB_URI || db, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify: false,

@@ -1,21 +1,24 @@
-.Main__Container {
+/* .Main__Container {
   display: flex;
   flex-direction: row;
-}
+  position: absolute;
+  margin-top: 56px;
+  z-index: -100;
+  margin-bottom: 56px;
+} */
 
 .Main__Container__SideBar {
-  height: inherit;
-  height: 100%;
+  z-index: 300;
 }
 
 .Main__Container_Content {
-  /* display: flex;
-  flex-direction: column; */
-  height: 100%;
+  z-index: 100;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 769px) {
   .Main__Container_Content {
-    margin-left: 356px;
+    /* margin-left: 18%; */
+    margin-left: 250px;
+    /* margin-left: 15rem; */
   }
 }
