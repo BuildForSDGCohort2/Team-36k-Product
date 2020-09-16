@@ -59,11 +59,14 @@
   .SideBar {
     /* display: none; */
 
-    transform: translateX(-100%);
-    transition: transform 0.3s ease-in-out;
+    transform: translateX(-200%);
+    transition: transform 0.5s ease-in-out;
   }
 
   .Open {
+    /* display: flex; */
+
     transform: translateX(0);
+    transition: transform 0.5s ease-in-out;
   }
 }
