@@ -16,7 +16,7 @@ router.get("/", async function (req, res, next) {
 });
 
 // @GET Request for one Doctor
-// @GET One Doctor
+// @GET One Doctor - Login
 router.get("/:id", async function (req, res, next) {
   try {
     const mDoctor = await Doctor.findById({ _id: req.params.id });
@@ -28,7 +28,7 @@ router.get("/:id", async function (req, res, next) {
 });
 
 // @POST request for adding a Doctor
-// Add a doctor
+// Add a doctor - Sign up
 router.post("/", async function (req, res, next) {
   try {
     const salt = await bcrypt.genSalt();
@@ -45,7 +45,11 @@ router.post("/", async function (req, res, next) {
       qualification: req.body.qualification,
     }).save();
 
-    res.status(201).json({ object: mDoctor });
+    if (mDoctor) {
+      res.status(201).json({ object: mDoctor });
+    } else {
+      res.status(500).json({ message: error.message });
+    }
     // console.log(mDoctor);
   } catch (error) {
     res.status(500).json({ message: error.message });

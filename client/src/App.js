@@ -11,8 +11,14 @@ class App extends React.Component {
     sideDrawerOpen: false,
   };
 
+  isLoggedIn = (param) => {
+    this.setState({ isAuthenticated: param });
+    sessionStorage.setItem(("isLoggedIn", param));
+  };
+
   drawerButtonClickHandler = () => {
     // console.log("Hamburger Clicked: " + this.state.sideDrawerOpen);
+
     this.setState((prevState) => {
       return { sideDrawerOpen: !prevState.sideDrawerOpen };
     });
@@ -42,7 +48,12 @@ class App extends React.Component {
 
     return (
       <div className="App">
-        <Auth />
+        {/* <Auth /> */}
+        {this.state.isAuthenticated ? (
+          main
+        ) : (
+          <Auth loggedIn={this.isLoggedIn} />
+        )}
         {/* {main} */}
       </div>
     );
