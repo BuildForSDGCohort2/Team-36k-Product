@@ -7,7 +7,7 @@ import Footer from "./components/Footer/Footer";
 import "./App.css";
 class App extends React.Component {
   state = {
-    isAuthenticated: false,
+    isAuthenticated: true,
     sideDrawerOpen: false,
   };
 

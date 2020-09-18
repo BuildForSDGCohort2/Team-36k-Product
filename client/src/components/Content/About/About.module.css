@@ -22,6 +22,7 @@
   width: 100%;
   font-size: 2rem;
   padding: 1rem 0;
+  text-align: center;
   background-color: rgb(3, 147, 147);
 }
 
@@ -49,7 +50,8 @@
 }
 
 .Container__Info_Item {
-  margin: 1rem 1rem;
+  display: flex;
+  /* margin: 1rem 1rem; */
   padding: 1rem 1rem;
   font-size: 1.5rem;
 
@@ -70,5 +72,11 @@
 
   .Container {
     width: 100%;
+  }
+}
+
+@media (min-width: 890px) and (max-width: 768px) {
+  .Container__Container {
+    margin-right: 5px;
   }
 }
