@@ -1,12 +1,11 @@
 import React from "react";
 import classes from "../Auth.module.css";
-
+import axios from "axios";
 class Signup extends React.Component {
   state = {
     firstName: "",
     lastName: "",
     email: "",
-    accountType: "",
     password: "",
     verifyPassword: "",
   };
@@ -21,15 +20,24 @@ class Signup extends React.Component {
     e.preventDefault();
     // Verify Password
     if (e.target["password"] === e.target["verifyPassword"]) {
-      const { firstName, lastName, email, password, accountType } = this.state;
+      const { firstName, lastName, email, password } = this.state;
       this.credentials = {
         firstName,
         lastName,
         email,
         password,
-        accountType,
+        phoneNumber: "",
       };
-      // console.log("Credentials: ", this.credentials);
+
+      console.log("Credentials: ", this.credentials);
+      axios
+        .post("http://localhost:5000/api/auth/user", this.credentials)
+        .then((response) => {
+          console.log(`${response.status}: ${response.statusText}`);
+        })
+        .catch((error) => {
+          console.log(error.message);
+        });
     } else {
       alert("wrong password");
     }
@@ -39,7 +47,6 @@ class Signup extends React.Component {
       firstName: "",
       lastName: "",
       email: "",
-      accountType: "",
       password: "",
       verifyPassword: "",
     });
@@ -72,7 +79,7 @@ class Signup extends React.Component {
           className={classes.InputItem}
           name="email"
         />
-        <div className={classes.AccountType}>
+        {/* <div className={classes.AccountType}>
           <span className={classes.AccountType__Label}>Account Type:</span>
           <label htmlFor="account-type">Patient</label>
           <input
@@ -90,7 +97,7 @@ class Signup extends React.Component {
             name="accountType"
             value="doctor"
           />
-        </div>
+        </div> */}
         <input
           placeholder="Password"
           onChange={(e) => this.onChange(e)}

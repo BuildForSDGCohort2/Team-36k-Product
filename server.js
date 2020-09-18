@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const path = require("path");
+const cors = require("cors");
 require("dotenv").config();
 // const bodyParser = require("body-parser");
 
@@ -23,15 +24,19 @@ mongoose
 
 // Setup Middle Wares
 // JSON Middleware
+app.use(cors());
 app.use(express.json());
 
 // Use Routes
-// app.use("/api" /* Use Doctores Routes */);
-const doctorsRoutes = require("./routes/api/doctors");
-app.use("/api/doctors", doctorsRoutes); /* Use Doctores Routes */
+// API Doctors
+app.use("/api/doctors", require("./routes/api/doctors"));
+// API Users
+app.use("/api/users", require("./routes/api/users"));
 
-const usersRoutes = require("./routes/api/users");
-app.use("/api/users", usersRoutes); /* Use Users Routes */
+// AUTH Doctors
+// app.use("/api/auth/user", require("./routes/api/auth/doctor"));
+// AUTH Users
+app.use("/api/auth/user", require("./routes/api/auth/user"));
 
 // const prescriptionsRoutes = require("./routes/api/prescriptions");
 // app.use("/api/prescriptions", prescriptionsRoutes); /* Use Doctores Routes */

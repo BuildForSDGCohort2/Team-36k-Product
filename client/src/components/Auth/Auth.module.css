@@ -73,6 +73,7 @@
   flex-direction: column;
   width: 90%;
   align-items: center;
+  justify-content: center;
   text-align: center;
 }
 
@@ -106,6 +107,7 @@
   border: none;
   background-color: aqua;
   color: white;
+  margin-top: 1rem;
 }
 
 .Button__Submit:hover {

@@ -1,5 +1,5 @@
 const express = require("express");
-const User = require("../../models/user");
+const User = require("../../../models/user");
 const router = express.Router();
 const bcrypt = require("bcrypt");
 
@@ -29,27 +29,62 @@ router.get("/:id", async function (req, res, next) {
   next();
 });
 
+//////////////////////////////////////////////
 // @POST request for adding a User
-// Add a user
+// Creating a user account
 router.post("/", async function (req, res, next) {
   try {
-    const salt = await bcrypt.genSalt();
-    const hashedPassword = await bcrypt.hash(req.body.password, salt);
+    let tempUser = await User.findOne({ email: req.body.email });
+    if (tempUser !== null)
+      return res
+        .status(403)
+        .json({ message: "A Use With that Email Already Exist" });
 
-    // console.log("Salt: " + salt);
-    // console.log("Password: " + hashedPassword);
-    // let mUsers = await new User(req.body).save();
+    try {
+      const salt = await bcrypt.genSalt();
+      const hashedPassword = await bcrypt.hash(req.body.password, salt);
 
-    let mUsers = await new User({
-      firstName: req.body.firstName,
-      lastName: req.body.lastName,
-      email: req.body.email,
-      password: hashedPassword,
-      phoneNumber: req.body.phoneNumber,
-    }).save();
+      let mUsers = await new User({
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        email: req.body.email,
+        password: hashedPassword,
+        phoneNumber: req.body.phoneNumber,
+      }).save();
 
-    res.status(201).json({ object: mUsers });
-    // console.log(mUsers);
+      res.status(201).json({ object: mUsers });
+      // console.log(mUsers);
+    } catch (error) {
+      res.status(500).send();
+    }
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+
+  next();
+});
+
+////////////////////////////////////////
+// @POST request for login
+//logging in a User
+router.post("/login", async function (req, res, next) {
+  try {
+    let mUser = await User.findOne({ email: req.body.email });
+    console.log("Database Response: ", mUser);
+
+    if (mUser === null)
+      return res.status(404).json({ message: "User Does Not Exist" });
+
+    try {
+      let result = await bcrypt.compare(req.body.password, mUser.password);
+      if (result) {
+        res.status(200).json({ message: "Logged In" });
+      } else {
+        res.status(200).json({ message: "Incorrect Password" });
+      }
+    } catch (error) {
+      res.status(500).send();
+    }
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
@@ -82,7 +117,7 @@ router.delete("/:id", async function (req, res, next) {
   } catch (error) {
     res.status(404).json({ message: error.message });
   }
-  
+
   next();
 });
 

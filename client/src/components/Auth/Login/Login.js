@@ -1,12 +1,15 @@
 import React from "react";
 import classes from "../Auth.module.css";
 import healthPng from "../../../assets/health.png";
+import axios from "axios";
 
 class Login extends React.Component {
   state = {
     email: "",
     password: "",
   };
+
+  credentials = {};
 
   onChange(e) {
     this.setState({ [e.target.name]: e.target.value });
@@ -15,14 +18,27 @@ class Login extends React.Component {
   onSubmit(e) {
     e.preventDefault();
 
+    this.credentials = {
+      password: this.state.password,
+      email: this.state.email,
+    };
+
     //Verify Auth
-    console.log("Email: " + this.state.email);
-    console.log("Password: " + this.state.password);
 
     this.setState({
       email: "",
       password: "",
     });
+
+    console.log("Credentials: ", this.credentials);
+    axios
+      .post("http://localhost:5000/api/auth/user/login", this.credentials)
+      .then((response) => {
+        console.log(`${response.status}: ${response.data.message}`);
+      })
+      .catch((error) => {
+        console.log(`${error}: Check Your Email or Password`);
+      });
   }
 
   render() {
