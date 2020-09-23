@@ -1,10 +1,10 @@
 .Content {
+  display: flex;
   position: fixed;
   height: 100%;
   margin-top: 56px;
   margin-bottom: 56px;
   z-index: 100;
-  background-color: violet;
 }
 
 .Container {
@@ -12,4 +12,28 @@
   justify-content: center;
   flex: 1;
   flex-wrap: wrap;
+  overflow-y: scroll;
+  margin-bottom: 120px;
+}
+
+.Container__Complaint {
+  position: absolute;
+  box-sizing: border-box;
+  font-size: 18px;
+  margin: 10px 10px auto auto;
+  border: 4px solid rgb(3, 147, 147);
+  padding: 16px;
+  right: 20px;
+  top: 5px;
+  color: rgb(3, 147, 147);
+  border-radius: 5px;
+}
+
+.Container__Complaint:hover {
+  cursor: pointer;
+}
+
+.Plus__Icon {
+  font-size: 25px;
+  font-weight: 500;
 }

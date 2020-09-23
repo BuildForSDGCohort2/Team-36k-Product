@@ -42,6 +42,7 @@
   border: 1px solid grey;
   font-size: 14px;
   margin-right: 256px;
+  padding-left: 10px;
 }
 
 .Container__Actions {

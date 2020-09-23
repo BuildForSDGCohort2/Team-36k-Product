@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import Card from "../../Card/Card";
 import classes from "./DashBoard.module.css";
+import Graph from "./Graph/Graph";
+import Summary from "./Summary/Summary";
 
 export class DashBoard extends Component {
   render() {
@@ -8,9 +9,14 @@ export class DashBoard extends Component {
       <div className={classes.Content}>
         <div className={classes.Container}>
           {/* Display User Health Graph */}
-          <Card />
+          <div className={classes.Container__Graph}>
+            <Graph />
+          </div>
+
           {/* Disaply user Health Prescritions */}
-          <Card />
+          <div className={classes.Container__Summary}>
+            <Summary />
+          </div>
         </div>
       </div>
     );
