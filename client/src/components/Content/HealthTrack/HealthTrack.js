@@ -1,6 +1,5 @@
 import axios from "axios";
 import React, { Component } from "react";
-
 import Card from "../../Card/Card";
 import Modal from "../../Modal/Modal";
 import classes from "./HealthTrack.module.css";
@@ -8,8 +7,20 @@ import classes from "./HealthTrack.module.css";
 export class HealthTrack extends Component {
   constructor(props) {
     super(props);
-    let tempPrescList = [];
+    this.fetchPrescriptionData();
+  }
 
+  state = {
+    showModal: false,
+    userPrescriptionList: [],
+  };
+
+  componentDidMount() {
+    this.fetchPrescriptionData();
+  }
+
+  fetchPrescriptionData = () => {
+    let tempPrescList = [];
     axios
       .get("http://localhost:5000/api/prescriptions")
       .then((response) => {
@@ -19,16 +30,14 @@ export class HealthTrack extends Component {
           );
         });
         this.setState({ userPrescriptionList: tempPrescList });
-        console.log(this.state.userPrescriptionList);
       })
       .catch((error) => {
         console.log(error.message);
       });
-  }
+  };
 
-  state = {
-    showModal: false,
-    userPrescriptionList: [],
+  complaintSubmitted = () => {
+    this.fetchPrescriptionData();
   };
 
   showModal = () => {
@@ -52,7 +61,9 @@ export class HealthTrack extends Component {
           <span className={classes.Plus__Icon}>+</span>
           <span>Make New Complaint</span>
         </div>
-        {this.state.showModal ? <Modal show={this.showModal} /> : null}
+        {this.state.showModal ? (
+          <Modal submitted={this.complaintSubmitted} show={this.showModal} />
+        ) : null}
       </div>
     );
   }

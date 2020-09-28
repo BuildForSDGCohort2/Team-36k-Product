@@ -38,7 +38,9 @@ export class Modal extends Component {
 
     // Clear the state after submission
     this.setState({ complaint: "" });
-  };  
+
+    this.props.submitted();
+  };
 
   render() {
     return (
