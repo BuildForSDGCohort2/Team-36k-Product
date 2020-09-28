@@ -3,7 +3,7 @@ const Prescription = require("../../models/prescription");
 const User = require("../../models/user");
 const router = express.Router();
 
-// Get All Users
+// Get All Prescriptions
 router.get("/", async function (req, res, next) {
   try {
     const mPresc = await Prescription.find({});
@@ -40,7 +40,7 @@ router.get("/:id", async function (req, res, next) {
   next();
 });
 
-// Add a Prescr iption
+// Add a Prescription
 // @POST public
 router.post("/", async function (req, res, next) {
   try {
@@ -71,9 +71,6 @@ router.post("/", async function (req, res, next) {
 
   next();
 });
-
-// // Update User
-// router.put("/:id", function (req, res) {});
 
 // // Delete User
 // router.delete("/:id", function (req, res) {});

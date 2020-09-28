@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { Component } from "react";
 
 import Card from "../../Card/Card";
@@ -5,8 +6,29 @@ import Modal from "../../Modal/Modal";
 import classes from "./HealthTrack.module.css";
 
 export class HealthTrack extends Component {
+  constructor(props) {
+    super(props);
+    let tempPrescList = [];
+
+    axios
+      .get("http://localhost:5000/api/prescriptions")
+      .then((response) => {
+        response.data.forEach((item) => {
+          tempPrescList.push(
+            item.user_id === localStorage.getItem("user_id") ? item : null
+          );
+        });
+        this.setState({ userPrescriptionList: tempPrescList });
+        console.log(this.state.userPrescriptionList);
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  }
+
   state = {
     showModal: false,
+    userPrescriptionList: [],
   };
 
   showModal = () => {
@@ -19,7 +41,9 @@ export class HealthTrack extends Component {
     return (
       <div className={classes.Content}>
         <div className={classes.Container}>
-          <Card />
+          {this.state.userPrescriptionList.map((item, index) => {
+            return <Card prescDetails={item} key={index} />;
+          })}
         </div>
         <div
           onClick={() => this.showModal()}
