@@ -48,8 +48,11 @@ router.post("/", async function (req, res, next) {
       phoneNumber: req.body.phoneNumber,
     }).save();
 
-    res.status(201).json({ object: mUsers });
-    // console.log(mUsers);
+    if (mUsers !== null) {
+      res.status(201).json({ object: mUsers });
+    } else {
+      res.json({ messae: "Failed to Create User" });
+    }
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
@@ -82,7 +85,7 @@ router.delete("/:id", async function (req, res, next) {
   } catch (error) {
     res.status(404).json({ message: error.message });
   }
-  
+
   next();
 });
 
@@ -105,7 +108,7 @@ async function getUser(req, res, next) {
   res.doctor = sUser;
   next();
 }
-////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////
 
 module.exports = router;

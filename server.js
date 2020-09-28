@@ -32,6 +32,8 @@ app.use(express.json());
 app.use("/api/doctors", require("./routes/api/doctors"));
 // API Users
 app.use("/api/users", require("./routes/api/users"));
+// API Prescriptions
+app.use("/api/prescriptions", require("./routes/api/prescriptions"));
 
 // AUTH Doctors
 // app.use("/api/auth/user", require("./routes/api/auth/doctor"));
