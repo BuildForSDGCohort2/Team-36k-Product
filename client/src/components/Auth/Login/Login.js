@@ -30,7 +30,6 @@ class Login extends React.Component {
       password: "",
     });
 
-    console.log("Credentials: ", this.credentials);
     axios
       .post("http://localhost:5000/api/auth/user/login", this.credentials)
       .then((response) => {

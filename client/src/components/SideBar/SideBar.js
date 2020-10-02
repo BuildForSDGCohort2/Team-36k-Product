@@ -9,8 +9,6 @@ export class SideBar extends Component {
   };
 
   render() {
-    console.log("Side Bar Status: " + this.props.open);
-
     return (
       <div
         className={

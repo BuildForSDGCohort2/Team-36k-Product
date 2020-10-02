@@ -34,6 +34,7 @@ class Signup extends React.Component {
         .post("http://localhost:5000/api/auth/user", this.credentials)
         .then((response) => {
           console.log(`${response.status}: ${response.statusText}`);
+          this.props.redirectToLogin();
         })
         .catch((error) => {
           console.log(error.message);

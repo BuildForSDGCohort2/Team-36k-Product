@@ -16,10 +16,6 @@ class Auth extends React.Component {
     fontFamily: "Helvetica",
   };
 
-  //////////////////////
-  // props received
-  // isLoggedIn
-
   render() {
     return (
       <div className={classes.Container}>
@@ -51,7 +47,9 @@ class Auth extends React.Component {
           {this.state.switchAuthType ? (
             <Login logInComplete={this.props.loggedIn} />
           ) : (
-            <Signup />
+            <Signup
+              redirectToLogin={() => this.setState({ switchAuthType: true })}
+            />
           )}
         </div>
       </div>
