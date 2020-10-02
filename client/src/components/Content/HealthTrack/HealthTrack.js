@@ -17,13 +17,11 @@ export class HealthTrack extends Component {
 
   componentDidMount() {
     let id = localStorage.getItem("user_id");
-    console.log("Got ID: " + id);
     this.fetchPrescriptionData(id);
   }
 
   fetchPrescriptionData = (id) => {
     if (id === null) return;
-    console.log("Passed ID: " + id);
     let tempPrescList = [];
     axios
       .get("http://localhost:5000/api/prescriptions")

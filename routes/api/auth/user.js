@@ -80,7 +80,7 @@ router.post("/login", async function (req, res, next) {
       if (result) {
         res.status(200).json({ message: "Logged In" });
       } else {
-        res.status(200).json({ message: "Incorrect Password" });
+        res.status(401).json({ message: "Incorrect Username or Password" });
       }
     } catch (error) {
       res.status(500).send();

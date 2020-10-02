@@ -34,10 +34,15 @@ class Login extends React.Component {
     axios
       .post("http://localhost:5000/api/auth/user/login", this.credentials)
       .then((response) => {
-        console.log(`${response.status}: ${response.data.message}`);
+        if (response.status === 200) {
+          console.log(`${response.status}: ${response.data.message}`);
+          this.props.logInComplete(true);
+          // show slick animation transition
+        }
       })
       .catch((error) => {
         console.log(`${error}: Check Your Email or Password`);
+        // show failed authentication animation warning all around
       });
   }
 

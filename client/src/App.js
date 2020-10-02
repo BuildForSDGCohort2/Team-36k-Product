@@ -7,18 +7,16 @@ import Footer from "./components/Footer/Footer";
 import "./App.css";
 class App extends React.Component {
   state = {
-    isAuthenticated: true,
+    isAuthenticated: false,
     sideDrawerOpen: false,
   };
 
   isLoggedIn = (param) => {
     this.setState({ isAuthenticated: param });
-    sessionStorage.setItem(("isLoggedIn", param));
+    sessionStorage.setItem("isLoggedIn", param);
   };
 
   drawerButtonClickHandler = () => {
-    // console.log("Hamburger Clicked: " + this.state.sideDrawerOpen);
-
     this.setState((prevState) => {
       return { sideDrawerOpen: !prevState.sideDrawerOpen };
     });

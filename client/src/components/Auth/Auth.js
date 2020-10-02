@@ -49,7 +49,7 @@ class Auth extends React.Component {
             </button>
           </div>
           {this.state.switchAuthType ? (
-            <Login logInComplete={this.isLoggedIn} />
+            <Login logInComplete={this.props.loggedIn} />
           ) : (
             <Signup />
           )}
