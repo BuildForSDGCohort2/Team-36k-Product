@@ -6,7 +6,7 @@ function Card(props) {
     <div className={classes.CardContainer}>
       <p className={classes.DateSection}>
         {props.prescDetails.date} <span className={classes.Spacer}></span>
-        <button className={classes.DeleteButton}>x</button>
+        {/* <button className={classes.DeleteButton}>x</button> */}
       </p>
       <p>{props.prescDetails.complaint}</p>
       <p>{(props.prescDetails.ailments[0], props.prescDetails.ailments[1])}</p>

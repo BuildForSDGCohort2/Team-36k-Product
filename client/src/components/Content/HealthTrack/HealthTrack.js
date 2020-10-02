@@ -7,27 +7,29 @@ import classes from "./HealthTrack.module.css";
 export class HealthTrack extends Component {
   constructor(props) {
     super(props);
-    this.fetchPrescriptionData();
   }
 
   state = {
     showModal: false,
     userPrescriptionList: [],
+    user_id: "",
   };
 
   componentDidMount() {
-    this.fetchPrescriptionData();
+    let id = localStorage.getItem("user_id");
+    console.log("Got ID: " + id);
+    this.fetchPrescriptionData(id);
   }
 
-  fetchPrescriptionData = () => {
+  fetchPrescriptionData = (id) => {
+    if (id === null) return;
+    console.log("Passed ID: " + id);
     let tempPrescList = [];
     axios
       .get("http://localhost:5000/api/prescriptions")
       .then((response) => {
         response.data.forEach((item) => {
-          tempPrescList.push(
-            item.user_id === localStorage.getItem("user_id") ? item : null
-          );
+          tempPrescList.push(item.user_id === id ? item : null);
         });
         this.setState({ userPrescriptionList: tempPrescList });
       })
@@ -37,7 +39,8 @@ export class HealthTrack extends Component {
   };
 
   complaintSubmitted = () => {
-    this.fetchPrescriptionData();
+    let id = localStorage.getItem("user_id");
+    this.fetchPrescriptionData(id);
   };
 
   showModal = () => {
