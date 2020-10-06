@@ -3,10 +3,16 @@ import { Link } from "react-router-dom";
 import avatar from "../../assets/avatar.png";
 import classes from "./SideBar.module.css";
 
-export class SideBar extends Component {
+class SideBar extends Component {
   linkStyle = {
     textDecoration: "none",
   };
+
+  logOutClick(e) {
+    // clear localstorage items
+    alert("loggin out of the app");
+    // redirect to login page
+  }
 
   render() {
     return (
@@ -37,7 +43,12 @@ export class SideBar extends Component {
           <Link style={this.linkStyle} to="about">
             <div className={classes.SideBar__Item}>About</div>
           </Link>
-          <div className={classes.SideBar__Item}>Logout</div>
+          <div
+            onClick={(e) => this.logOutClick(e)}
+            className={classes.SideBar__Item}
+          >
+            Logout
+          </div>
         </div>
       </div>
     );

@@ -19,26 +19,25 @@ class Main extends React.Component {
     ) : null;
 
     return (
-      <Router>
-        <div className={classes.Main__Container}>
-          {/* Sidebar - Options Menu*/}
-          <div className={classes.Main__Container__SideBar}>
-            <SideBar open={this.props.openSideMenu} />
-          </div>
-
-          {/* Render BackDrop when Side Menu is Opened */}
-          {backDrop}
-          {/* Main Window Container */}
-          <div className={classes.Main__Container_Content}>
-            <Switch>
-              <Route path="/healthtrack" component={HealthTrack} />
-              <Route path="/profile" component={Profile} />
-              <Route path="/about" component={About} />
-              <Route path="/" component={DashBoard} />
-            </Switch>
-          </div>
+      <div className={classes.Main__Container}>
+        {/* Sidebar - Options Menu*/}
+        <div className={classes.Main__Container__SideBar}>
+          <SideBar open={this.props.openSideMenu} />
         </div>
-      </Router>
+
+        {/* Render BackDrop when Side Menu is Opened */}
+        {backDrop}
+
+        {/* Main Window Container */}
+        <div className={classes.Main__Container_Content}>
+          <Switch>
+            <Route path="/healthtrack" component={HealthTrack} />
+            <Route path="/profile" component={Profile} />
+            <Route path="/about" component={About} />
+            <Route path="/" component={DashBoard} />
+          </Switch>
+        </div>
+      </div>
     );
   }
 }

@@ -3,11 +3,11 @@ import Auth from "./components/Auth/Auth";
 import Main from "./components/Main/Main";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
-
+import { BrowserRouter as Router } from "react-router-dom";
 import "./App.css";
 class App extends React.Component {
   state = {
-    isAuthenticated: false,
+    isAuthenticated: true,
     sideDrawerOpen: false,
   };
 
@@ -29,18 +29,20 @@ class App extends React.Component {
   render() {
     let main = (
       <div>
-        <nav className="Nav">
-          <Header drawerButtonClicked={this.drawerButtonClickHandler} />
-        </nav>
-        <main className="Main">
-          <Main
-            openSideMenu={this.state.sideDrawerOpen}
-            clickBackDrop={this.backDropClickHandler}
-          />
-        </main>
-        <footer className="Footer">
-          <Footer />
-        </footer>
+        <Router>
+          <nav className="Nav">
+            <Header drawerButtonClicked={this.drawerButtonClickHandler} />
+          </nav>
+          <main className="Main">
+            <Main
+              openSideMenu={this.state.sideDrawerOpen}
+              clickBackDrop={this.backDropClickHandler}
+            />
+          </main>
+          <footer className="Footer">
+            <Footer />
+          </footer>
+        </Router>
       </div>
     );
 
