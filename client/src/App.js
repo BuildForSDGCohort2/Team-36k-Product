@@ -33,6 +33,11 @@ class App extends React.Component {
     this.setState({ sideDrawerOpen: false });
   };
 
+  componentDidMount() {
+    // Check State
+    if (localStorage.getItem("isLoggedIn")) this.isLoggedIn(true);
+  }
+
   render() {
     let main = (
       <div>
