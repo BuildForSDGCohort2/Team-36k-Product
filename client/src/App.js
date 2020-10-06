@@ -52,7 +52,6 @@ class App extends React.Component {
         ) : (
           <Auth loggedIn={this.isLoggedIn} />
         )}
-        {/* {main} */}
       </div>
     );
   }

@@ -19,6 +19,23 @@ class Signup extends React.Component {
   onSubmit(e) {
     e.preventDefault();
     // Verify Password
+    if (
+      this.state.lastName === "" ||
+      this.state.password === "" ||
+      this.state.firstName === "" ||
+      this.state.verifyPassword === "" ||
+      this.state.email === ""
+    ) {
+      console.log("Fields Cannot Be Empty!");
+      alert("All Fields Must be Completed");
+      return;
+    }
+
+    if (this.state.password.length < 8 || this.state.verifyPassword < 8) {
+      alert("Password must be at least 8 characters long");
+      return;
+    }
+
     if (e.target["password"] === e.target["verifyPassword"]) {
       const { firstName, lastName, email, password } = this.state;
       this.credentials = {
@@ -40,7 +57,7 @@ class Signup extends React.Component {
           console.log(error.message);
         });
     } else {
-      alert("wrong password");
+      alert("Passwords Do not Match!");
     }
 
     // console.log("State Values: " + this.state);

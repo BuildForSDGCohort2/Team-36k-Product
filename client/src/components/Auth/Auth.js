@@ -5,7 +5,7 @@ import classes from "./Auth.module.css";
 
 class Auth extends React.Component {
   state = {
-    switchAuthType: false,
+    switchAuthType: true,
     authComponentState: {},
   };
 
