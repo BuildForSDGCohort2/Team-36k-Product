@@ -8,12 +8,6 @@ class SideBar extends Component {
     textDecoration: "none",
   };
 
-  logOutClick(e) {
-    // clear localstorage items
-    alert("loggin out of the app");
-    // redirect to login page
-  }
-
   render() {
     return (
       <div
@@ -44,7 +38,7 @@ class SideBar extends Component {
             <div className={classes.SideBar__Item}>About</div>
           </Link>
           <div
-            onClick={(e) => this.logOutClick(e)}
+            onClick={() => this.props.logOutPress()}
             className={classes.SideBar__Item}
           >
             Logout

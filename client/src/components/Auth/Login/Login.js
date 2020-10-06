@@ -36,6 +36,8 @@ class Login extends React.Component {
         if (response.status === 200) {
           console.log(`${response.status}: ${response.data.message}`);
           this.props.logInComplete(true);
+          localStorage.setItem("user_id", response.data.id);
+          localStorage.setItem("user_name", response.data.fname);
           // show slick animation transition
         }
       })

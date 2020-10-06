@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 
 import SideBar from "../SideBar/SideBar";
 import HealthTrack from "../Content/HealthTrack/HealthTrack";
@@ -22,7 +22,10 @@ class Main extends React.Component {
       <div className={classes.Main__Container}>
         {/* Sidebar - Options Menu*/}
         <div className={classes.Main__Container__SideBar}>
-          <SideBar open={this.props.openSideMenu} />
+          <SideBar
+            logOutPress={this.props.logOut}
+            open={this.props.openSideMenu}
+          />
         </div>
 
         {/* Render BackDrop when Side Menu is Opened */}

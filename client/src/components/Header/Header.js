@@ -9,12 +9,6 @@ class Header extends React.Component {
     color: "white",
   };
 
-  logOutClick(e) {
-    alert("Loggin Out of the app");
-    // clear local storage items
-    // redirect to login page
-  }
-
   render() {
     return (
       <div className={classes.NavBar}>
@@ -30,11 +24,11 @@ class Header extends React.Component {
           <div className={classes.NavBar__Links}>
             <Link style={this.linkStyle} to="/profile">
               <div onClick={null} className={classes.NavBar__Links_Items}>
-                User
+                {localStorage.getItem("user_name")}
               </div>
             </Link>
             <div
-              onClick={(e) => this.logOutClick(e)}
+              onClick={() => this.props.logOut()}
               className={classes.NavBar__Links_Items}
             >
               Logout

@@ -7,13 +7,20 @@ import { BrowserRouter as Router } from "react-router-dom";
 import "./App.css";
 class App extends React.Component {
   state = {
-    isAuthenticated: true,
+    isAuthenticated: false,
     sideDrawerOpen: false,
   };
 
   isLoggedIn = (param) => {
+    localStorage.setItem("isLoggedIn", param);
     this.setState({ isAuthenticated: param });
-    sessionStorage.setItem("isLoggedIn", param);
+  };
+
+  logOut = () => {
+    localStorage.removeItem("isLoggedIn");
+    localStorage.removeItem("user_id");
+    localStorage.removeItem("user_name");
+    this.setState({ isAuthenticated: false });
   };
 
   drawerButtonClickHandler = () => {
@@ -31,10 +38,14 @@ class App extends React.Component {
       <div>
         <Router>
           <nav className="Nav">
-            <Header drawerButtonClicked={this.drawerButtonClickHandler} />
+            <Header
+              logOut={this.logOut}
+              drawerButtonClicked={this.drawerButtonClickHandler}
+            />
           </nav>
           <main className="Main">
             <Main
+              logOut={this.logOut}
               openSideMenu={this.state.sideDrawerOpen}
               clickBackDrop={this.backDropClickHandler}
             />
