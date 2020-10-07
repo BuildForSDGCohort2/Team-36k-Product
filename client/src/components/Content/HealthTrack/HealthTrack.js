@@ -5,10 +5,6 @@ import Modal from "../../Modal/Modal";
 import classes from "./HealthTrack.module.css";
 
 export class HealthTrack extends Component {
-  // constructor(props) {
-  //   super(props);
-  // }
-
   state = {
     showModal: false,
     userPrescriptionList: [],

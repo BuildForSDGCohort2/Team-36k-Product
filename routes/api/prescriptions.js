@@ -44,7 +44,11 @@ router.get("/:id", async function (req, res, next) {
 // @POST public
 router.post("/", async function (req, res, next) {
   try {
-    let mPresc = await new Prescription(req.body).save();
+    let mPresc = await new Prescription({
+      ailments: req.body.complaint.split(","),
+      complaint: req.body.complaint,
+      user_id: req.body.user_id,
+    }).save();
     let mUser = null;
 
     if (mPresc !== null) {

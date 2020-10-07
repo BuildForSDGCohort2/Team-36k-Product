@@ -36,10 +36,6 @@ router.post("/", async function (req, res, next) {
     const salt = await bcrypt.genSalt();
     const hashedPassword = await bcrypt.hash(req.body.password, salt);
 
-    // console.log("Salt: " + salt);
-    // console.log("Password: " + hashedPassword);
-    // let mUsers = await new User(req.body).save();
-
     let mUsers = await new User({
       firstName: req.body.firstName,
       lastName: req.body.lastName,
