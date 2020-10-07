@@ -34,7 +34,8 @@ class Login extends React.Component {
       .post("http://localhost:5000/api/auth/user/login", this.credentials)
       .then((response) => {
         if (response.status === 200) {
-          console.log(`${response.status}: ${response.data.message}`);
+          // console.log(`${response.status}: ${response.data.message}`);
+
           this.props.logInComplete(true);
           localStorage.setItem("user_id", response.data.id);
           localStorage.setItem("user_name", response.data.fname);
@@ -42,8 +43,10 @@ class Login extends React.Component {
         }
       })
       .catch((error) => {
-        console.log(`${error}: Check Your Email or Password`);
         // show failed authentication animation warning all around
+        // console.log(`${error}: Check Your Email or Password`);
+
+        alert("Check Your Email or Password");
       });
   }
 

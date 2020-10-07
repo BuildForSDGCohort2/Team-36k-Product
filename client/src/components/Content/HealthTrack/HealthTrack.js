@@ -28,7 +28,8 @@ export class HealthTrack extends Component {
         this.setState({ userPrescriptionList: tempPrescList });
       })
       .catch((error) => {
-        console.log(error.message);
+        // Display Error Output
+        // console.log(error.message);
       });
   };
 

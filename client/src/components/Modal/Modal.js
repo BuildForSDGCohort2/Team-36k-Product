@@ -15,7 +15,8 @@ export class Modal extends Component {
   };
 
   onSubmit = () => {
-    console.log("Submitted: " + this.state.complaint);
+    // console.log("Submitted: " + this.state.complaint);
+
     this.props.show();
 
     // Post to the users prescription column

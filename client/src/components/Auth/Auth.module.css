@@ -21,7 +21,7 @@
   color: lightcoral;
   align-self: center;
   margin: 0 auto;
-  font-family: Helvetica, sans-serif;
+  font-family: Helvetica, Arial, sans-serif;
 }
 
 .AuthSide {
@@ -47,18 +47,17 @@
 .FormToggle__Button {
   height: 38px;
   font-size: 16px;
-  border: none;
   cursor: pointer;
   width: 100px;
   border: 1px solid aqua;
-  border-radius: 0px;
+  border-radius: 0;
 }
 
 .FormToggle__Button_Active {
   background-color: aqua;
   color: white;
   border: none;
-  font-family: Helvetica;
+  font-family: Helvetica, Arial, sans-serif;
 }
 
 /* .Radio,

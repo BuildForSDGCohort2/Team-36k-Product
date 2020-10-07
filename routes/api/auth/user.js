@@ -70,7 +70,8 @@ router.post("/", async function (req, res, next) {
 router.post("/login", async function (req, res, next) {
   try {
     let mUser = await User.findOne({ email: req.body.email });
-    console.log("Database Response: ", mUser);
+
+    // console.log("Database Response: ", mUser);
 
     if (mUser === null)
       return res.status(404).json({ message: "User Does Not Exist" });
@@ -78,13 +79,11 @@ router.post("/login", async function (req, res, next) {
     try {
       let result = await bcrypt.compare(req.body.password, mUser.password);
       if (result) {
-        res
-          .status(200)
-          .json({
-            message: "Logged In",
-            id: mUser._id,
-            fname: mUser.firstName,
-          });
+        res.status(200).json({
+          message: "Logged In",
+          id: mUser._id,
+          fname: mUser.firstName,
+        });
       } else {
         res.status(401).json({ message: "Incorrect Username or Password" });
       }

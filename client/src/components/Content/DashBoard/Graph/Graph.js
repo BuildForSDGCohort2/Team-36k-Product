@@ -31,16 +31,16 @@ class Graph extends React.Component {
   };
 
   generateDataPoints = (arr) => {
-    let temp = {};
-    console.log(arr);
-    for (var i = 0; i < arr.length; i++) {
-      console.log(arr[i]);
-      for (const v in temp) {
-        if (temp.hasOwnProperty(v)) {
-          temp[v] = temp[v]++;
-        }
-      }
-    }
+    // let temp = {};
+    // console.log(arr);
+    // for (var i = 0; i < arr.length; i++) {
+    //   console.log(arr[i]);
+    //   for (const v in temp) {
+    //     if (temp.hasOwnProperty(v)) {
+    //       temp[v] = temp[v]++;
+    //     }
+    //   }
+    // }
   };
 
   componentDidMount() {

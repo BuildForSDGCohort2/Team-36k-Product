@@ -26,7 +26,6 @@ class Signup extends React.Component {
       this.state.verifyPassword === "" ||
       this.state.email === ""
     ) {
-      console.log("Fields Cannot Be Empty!");
       alert("All Fields Must be Completed");
       return;
     }
@@ -46,15 +45,16 @@ class Signup extends React.Component {
         phoneNumber: "",
       };
 
-      console.log("Credentials: ", this.credentials);
       axios
         .post("http://localhost:5000/api/auth/user", this.credentials)
         .then((response) => {
-          console.log(`${response.status}: ${response.statusText}`);
+          // console.log(`${response.status}: ${response.statusText}`);
+
           this.props.redirectToLogin();
         })
         .catch((error) => {
-          console.log(error.message);
+          // Show Error Message
+          // console.log(error.message);
         });
     } else {
       alert("Passwords Do not Match!");
