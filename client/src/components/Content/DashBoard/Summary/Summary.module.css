@@ -1,0 +1,43 @@
+.Container {
+  display: flex;
+  flex-direction: column;
+  width: 95%;
+  height: 100%;
+  text-align: center;
+  margin: 1rem auto;
+  background-color: aqua;
+  box-sizing: border-box;
+  word-wrap: break-word;
+}
+
+.Heading {
+  background-color: rgb(3, 147, 147);
+  color: #fff;
+}
+
+.Heading__Text_Title {
+  font-size: 30px;
+}
+
+.Heading__Text {
+  padding: 10px 20px;
+}
+
+.Description {
+  /*  */
+}
+
+.Content__Paragragh {
+  color: black;
+  font-size: 15px;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 10px 5px;
+}
+
+@media (max-width: 768px) {
+  .Container {
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+  }
+}

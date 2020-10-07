@@ -1,71 +1,22 @@
 import React, { Component } from "react";
-import Card from "../../Card/Card";
 import classes from "./DashBoard.module.css";
+import Graph from "./Graph/Graph";
+import Summary from "./Summary/Summary";
 
 export class DashBoard extends Component {
   render() {
     return (
       <div className={classes.Content}>
         <div className={classes.Container}>
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
+          {/* Display User Health Graph */}
+          <div className={classes.Container__Graph}>
+            <Graph />
+          </div>
+
+          {/* Disaply user Health Prescritions */}
+          <div className={classes.Container__Summary}>
+            <Summary />
+          </div>
         </div>
       </div>
     );

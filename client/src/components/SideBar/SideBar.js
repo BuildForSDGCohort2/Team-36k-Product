@@ -3,14 +3,12 @@ import { Link } from "react-router-dom";
 import avatar from "../../assets/avatar.png";
 import classes from "./SideBar.module.css";
 
-export class SideBar extends Component {
+class SideBar extends Component {
   linkStyle = {
     textDecoration: "none",
   };
 
   render() {
-    console.log("Side Bar Status: " + this.props.open);
-
     return (
       <div
         className={
@@ -39,7 +37,12 @@ export class SideBar extends Component {
           <Link style={this.linkStyle} to="about">
             <div className={classes.SideBar__Item}>About</div>
           </Link>
-          <div className={classes.SideBar__Item}>Logout</div>
+          <div
+            onClick={() => this.props.logOutPress()}
+            className={classes.SideBar__Item}
+          >
+            Logout
+          </div>
         </div>
       </div>
     );

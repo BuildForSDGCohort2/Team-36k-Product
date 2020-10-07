@@ -1,28 +1,4 @@
 const mongoose = require("mongoose");
-// const Prescriptions = require("../models/prescription");
-
-const PrescriptionSchema = new mongoose.Schema({
-  name: {
-    type: String,
-    required: true,
-  },
-  ailments: {
-    type: [String],
-    required: true,
-  },
-  dosage: {
-    type: String,
-    required: true,
-  },
-  signature: {
-    type: String,
-    required: true,
-  },
-  date: {
-    type: Date,
-    default: Date.now,
-  },
-});
 
 const UserSchema = new mongoose.Schema({
   firstName: {
@@ -37,6 +13,10 @@ const UserSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  password: {
+    type: String,
+    required: true,
+  },
   date: {
     type: Date,
     default: Date.now,
@@ -47,7 +27,7 @@ const UserSchema = new mongoose.Schema({
     default: "Unset",
   },
   prescriptions: {
-    type: [PrescriptionSchema],
+    type: [String],
     required: false,
   },
 });

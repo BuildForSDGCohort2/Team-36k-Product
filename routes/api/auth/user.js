@@ -1,5 +1,5 @@
 const express = require("express");
-const User = require("../../models/user");
+const User = require("../../../models/user");
 const router = express.Router();
 const bcrypt = require("bcrypt");
 
@@ -29,25 +29,66 @@ router.get("/:id", async function (req, res, next) {
   next();
 });
 
+//////////////////////////////////////////////
 // @POST request for adding a User
-// Add a user
+// Creating a user account
 router.post("/", async function (req, res, next) {
   try {
-    const salt = await bcrypt.genSalt();
-    const hashedPassword = await bcrypt.hash(req.body.password, salt);
+    let tempUser = await User.findOne({ email: req.body.email });
+    if (tempUser !== null)
+      return res
+        .status(403)
+        .json({ message: "A Use With that Email Already Exist" });
 
-    let mUsers = await new User({
-      firstName: req.body.firstName,
-      lastName: req.body.lastName,
-      email: req.body.email,
-      password: hashedPassword,
-      phoneNumber: req.body.phoneNumber,
-    }).save();
+    try {
+      const salt = await bcrypt.genSalt();
+      const hashedPassword = await bcrypt.hash(req.body.password, salt);
 
-    if (mUsers !== null) {
+      let mUsers = await new User({
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        email: req.body.email,
+        password: hashedPassword,
+        phoneNumber: req.body.phoneNumber,
+      }).save();
+
       res.status(201).json({ object: mUsers });
-    } else {
-      res.json({ messae: "Failed to Create User" });
+      // console.log(mUsers);
+    } catch (error) {
+      res.status(500).send();
+    }
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+
+  next();
+});
+
+////////////////////////////////////////
+// @POST request for login
+//logging in a User
+router.post("/login", async function (req, res, next) {
+  try {
+    let mUser = await User.findOne({ email: req.body.email });
+
+    // console.log("Database Response: ", mUser);
+
+    if (mUser === null)
+      return res.status(404).json({ message: "User Does Not Exist" });
+
+    try {
+      let result = await bcrypt.compare(req.body.password, mUser.password);
+      if (result) {
+        res.status(200).json({
+          message: "Logged In",
+          id: mUser._id,
+          fname: mUser.firstName,
+        });
+      } else {
+        res.status(401).json({ message: "Incorrect Username or Password" });
+      }
+    } catch (error) {
+      res.status(500).send();
     }
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -104,7 +145,7 @@ async function getUser(req, res, next) {
   res.doctor = sUser;
   next();
 }
-////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////
 
 module.exports = router;

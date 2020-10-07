@@ -13,12 +13,13 @@
 
 .Main__Container_Content {
   z-index: 100;
+  text-align: center;
+
+  /* align-items: center; */
 }
 
 @media (min-width: 769px) {
   .Main__Container_Content {
-    /* margin-left: 18%; */
     margin-left: 250px;
-    /* margin-left: 15rem; */
   }
 }

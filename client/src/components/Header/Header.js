@@ -1,8 +1,14 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import HamburgerIcon from "./HamburgerIcon/HamburgerIcon";
 import classes from "./Header.module.css";
 
 class Header extends React.Component {
+  linkStyle = {
+    textDecoration: "none",
+    color: "white",
+  };
+
   render() {
     return (
       <div className={classes.NavBar}>
@@ -16,8 +22,17 @@ class Header extends React.Component {
           <div className={classes.NavBar__Logo}>DigiPharm</div>
           <div className={classes.NavBar__Spacer}></div>
           <div className={classes.NavBar__Links}>
-            <div className={classes.NavBar__Links_Items}>User</div>
-            <div className={classes.NavBar__Links_Items}>Logout</div>
+            <Link style={this.linkStyle} to="/profile">
+              <div onClick={null} className={classes.NavBar__Links_Items}>
+                {localStorage.getItem("user_name")}
+              </div>
+            </Link>
+            <div
+              onClick={() => this.props.logOut()}
+              className={classes.NavBar__Links_Items}
+            >
+              Logout
+            </div>
           </div>
         </div>
       </div>

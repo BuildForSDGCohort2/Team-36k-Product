@@ -1,0 +1,15 @@
+.Container {
+  width: 95%;
+  height: 100%;
+  margin: 1rem auto;
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  .Container {
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    height: 100%;
+  }
+}

@@ -15,6 +15,13 @@ export class About extends Component {
                 quibusdam ipsam saepe voluptate ea repudiandae expedita dolor,
                 libero distinctio! Aliquam libero ut soluta?
               </p>
+              <p>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                Corrupti quae ad omnis, pariatur nostrum unde possimus,
+                quibusdam ipsam saepe voluptate ea repudiandae expedita dolor,
+                libero distinctio! Aliquam libero ut soluta?
+              </p>
+
               {/* <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Praesentium, et! Assumenda, repellat enim obcaecati animi

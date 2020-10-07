@@ -4,13 +4,33 @@
 
 .CardContainer {
   text-align: left;
+  display: flex;
+  flex-direction: column;
   box-shadow: 1px 1px 5px grey;
-  height: 150px;
-  width: 150px;
+  height: 220px;
+  width: 350px;
   margin: 12px;
 }
 
 .CardContainer > p {
   padding: 6px;
   margin: 6px;
+}
+
+.DateSection {
+  display: flex;
+}
+
+.Spacer {
+  flex: 1;
+}
+
+.DeleteButton {
+  background-color: red;
+  border-radius: 100%;
+  border: none;
+  color: white;
+  height: 20px;
+  width: 20px;
+  cursor: pointer;
 }

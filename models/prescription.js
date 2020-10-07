@@ -1,21 +1,26 @@
+const { ObjectID } = require("mongodb");
 const mongoose = require("mongoose");
 
 const PrescriptionSchema = new mongoose.Schema({
-  name: {
+  user_id: {
+    type: String,
+    required: true,
+  },
+  complaint: {
     type: String,
     required: true,
   },
   ailments: {
     type: [String],
-    required: true,
+    required: false,
   },
   dosage: {
-    type: String,
-    required: true,
+    type: [String],
+    required: false,
   },
   signature: {
     type: String,
-    required: true,
+    required: false,
   },
   date: {
     type: Date,

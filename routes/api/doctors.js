@@ -1,6 +1,7 @@
 const express = require("express");
-const Doctor = require("../../models/user");
+const Doctor = require("../../models/doctor");
 const router = express.Router();
+const bcrypt = require("bcrypt");
 
 // @GET Request
 // @Get All Doctors
@@ -15,7 +16,7 @@ router.get("/", async function (req, res, next) {
 });
 
 // @GET Request for one Doctor
-// @GET One Doctor
+// @GET One Doctor - Login
 router.get("/:id", async function (req, res, next) {
   try {
     const mDoctor = await Doctor.findById({ _id: req.params.id });
@@ -27,11 +28,28 @@ router.get("/:id", async function (req, res, next) {
 });
 
 // @POST request for adding a Doctor
-// Add a user
+// Add a doctor - Sign up
 router.post("/", async function (req, res, next) {
   try {
-    let mDoctor = await new Doctor(req.body).save();
-    res.status(201).json({ object: mDoctor });
+    const salt = await bcrypt.genSalt();
+    const hashedPassword = await bcrypt.hash(req.body.password, salt);
+
+    // let mDoctor = await new Doctor(req.body).save();
+
+    let mDoctor = await new Doctor({
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
+      email: req.body.email,
+      password: hashedPassword,
+      phoneNumber: req.body.phoneNumber,
+      qualification: req.body.qualification,
+    }).save();
+
+    if (mDoctor) {
+      res.status(201).json({ object: mDoctor });
+    } else {
+      res.status(500).json({ message: error.message });
+    }
     // console.log(mDoctor);
   } catch (error) {
     res.status(500).json({ message: error.message });
