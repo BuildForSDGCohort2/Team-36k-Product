@@ -6,12 +6,10 @@ require("dotenv").config();
 
 // Create express server instance
 const app = express();
-// DB Config
-const db = require("./config/keys").MONGODB_URI;
 
 // Connect to MongoDB
 mongoose
-  .connect(db || process.env.MONGODB_URI, {
+  .connect(process.env.MONGODB_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify: false,
