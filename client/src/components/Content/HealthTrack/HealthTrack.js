@@ -22,9 +22,7 @@ export class HealthTrack extends Component {
     axios
       .get("http://localhost:5000/api/prescriptions")
       .then((response) => {
-        response.data.forEach((item) => {
-          tempPrescList.push(item.user_id === id ? item : null);
-        });
+        tempPrescList = response.data.filter((item) => item.user_id === id);
         this.setState({ userPrescriptionList: tempPrescList });
       })
       .catch((error) => {
@@ -49,7 +47,7 @@ export class HealthTrack extends Component {
       <div className={classes.Content}>
         <div className={classes.Container}>
           {this.state.userPrescriptionList.map((item, index) => {
-            return <Card prescDetails={item} key={index} />;
+            return <Card prescDetails={item} key={item._id} />;
           })}
         </div>
         <div

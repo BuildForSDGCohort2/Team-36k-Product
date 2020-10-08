@@ -35,6 +35,7 @@ class Main extends React.Component {
         <div className={classes.Main__Container_Content}>
           <Switch>
             <Route path="/healthtrack" component={HealthTrack} />
+            <Route path="/dashboard" component={DashBoard} />
             <Route path="/profile" component={Profile} />
             <Route path="/about" component={About} />
             <Route path="/" component={DashBoard} />
