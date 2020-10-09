@@ -46,7 +46,7 @@ class Signup extends React.Component {
       };
 
       axios
-        .post("http://localhost:5000/api/auth/user", this.credentials)
+        .post("/api/auth/user", this.credentials)
         .then((response) => {
           // console.log(`${response.status}: ${response.statusText}`);
 

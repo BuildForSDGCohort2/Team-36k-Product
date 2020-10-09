@@ -47,7 +47,7 @@ class Graph extends React.Component {
     // fetch and organise ailments
     let tempAilments = [];
     axios
-      .get("http://localhost:5000/api/prescriptions")
+      .get("/api/prescriptions")
       .then((response) => {
         //filter each pres to match the user
         tempAilments = response.data.filter(
