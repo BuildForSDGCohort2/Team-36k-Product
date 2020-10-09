@@ -20,7 +20,7 @@ export class HealthTrack extends Component {
     if (id === null) return;
     let tempPrescList = [];
     axios
-      .get("http://localhost:5000/api/prescriptions")
+      .get("/api/prescriptions")
       .then((response) => {
         tempPrescList = response.data.filter((item) => item.user_id === id);
         this.setState({ userPrescriptionList: tempPrescList });

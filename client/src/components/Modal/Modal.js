@@ -23,7 +23,7 @@ export class Modal extends Component {
     if (this.id !== null) {
       // Add prescriptin to our database column
       axios
-        .post("http://localhost:5000/api/prescriptions", {
+        .post("/api/prescriptions", {
           complaint: this.state.complaint,
           user_id: this.id,
         })

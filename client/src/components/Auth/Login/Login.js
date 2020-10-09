@@ -31,7 +31,7 @@ class Login extends React.Component {
     });
 
     axios
-      .post("http://localhost:5000/api/auth/user/login", this.credentials)
+      .post("/api/auth/user/login", this.credentials)
       .then((response) => {
         if (response.status === 200) {
           // console.log(`${response.status}: ${response.data.message}`);
