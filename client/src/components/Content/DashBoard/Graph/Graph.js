@@ -30,17 +30,52 @@ class Graph extends React.Component {
     ],
   };
 
+  getRandomColor = () => {
+    var letters = '0123456789ABCDEF';
+    var color = '#';
+    for (var i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+  }
+
   generateDataPoints = (arr) => {
-    // let temp = {};
-    // console.log(arr);
-    // for (var i = 0; i < arr.length; i++) {
-    //   console.log(arr[i]);
-    //   for (const v in temp) {
-    //     if (temp.hasOwnProperty(v)) {
-    //       temp[v] = temp[v]++;
-    //     }
-    //   }
-    // }
+    let tempLabels = [];
+    let tempData = [];
+    let tempBGColor = [];
+    let tempFGColor = [];
+
+    // Loop through data elements
+    for (var i = 0; i < arr.length; i++){
+      // Generate Legend Headings
+      for(var j = 0; j < arr[i].ailments.length; j++){
+        // Generate Data Points
+        let t = arr[i]["ailments"][j].toString().trim();
+        // console.log("Value: ", t);
+
+        if (!tempLabels.includes(t)){
+          // Create New Item and Set Count to 1
+          tempLabels.push(t);
+          let n = tempLabels.indexOf(t);
+          tempData[n] = 1;
+          // console.log("Index of T: ", n);
+
+          //Generate Random Color;
+          tempBGColor[n] = this.getRandomColor();
+          tempFGColor[n] = this.getRandomColor();
+
+        }else if (tempLabels.includes(t)){
+          // Increate Data Item if exists
+          let n = tempLabels.indexOf(t);
+          tempData[n] = tempData[n] + 1;
+          // console.log("Index of T: ", n);
+        }else{
+          continue;
+        }
+      }
+    }
+
+    return [tempLabels, {data: tempData, backgroundColor: tempBGColor, hoverBackgroundColor: tempBGColor}];
   };
 
   componentDidMount() {
@@ -53,7 +88,8 @@ class Graph extends React.Component {
         tempAilments = response.data.filter(
           (item) => item.user_id === localStorage.getItem("user_id")
         );
-        this.generateDataPoints(tempAilments);
+        let result = this.generateDataPoints(tempAilments);
+        this.setState({labels: result[0], datasets: [result[1]]});
       })
       .catch((error) => {
         //
@@ -66,6 +102,8 @@ class Graph extends React.Component {
       <div className={classes.Container}>
         <Doughnut
           data={this.state}
+          width={500}
+          height={500}
           options={{
             title: {
               display: true,
