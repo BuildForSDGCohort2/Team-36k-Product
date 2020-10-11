@@ -37,6 +37,7 @@ app.use("/api/prescriptions", require("./routes/api/prescriptions"));
 // AUTH Users
 app.use("/api/auth/user", require("./routes/api/auth/user"));
 
+
 // const prescriptionsRoutes = require("./routes/api/prescriptions");
 // app.use("/api/prescriptions", prescriptionsRoutes); /* Use Doctores Routes */
 

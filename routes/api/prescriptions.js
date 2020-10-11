@@ -43,7 +43,7 @@ router.get("/:id", async function (req, res, next) {
 router.post("/", async function (req, res, next) {
   try {
     let mPresc = await new Prescription({
-      ailments: req.body.complaint.split(","),
+      ailments: req.body.complaint.split(", "),
       complaint: req.body.complaint,
       user_id: req.body.user_id,
     }).save();
@@ -70,6 +70,4 @@ router.post("/", async function (req, res, next) {
   next();
 });
 
-// // Delete User
-// router.delete("/:id", function (req, res) {});
 module.exports = router;
