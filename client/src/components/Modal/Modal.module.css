@@ -13,11 +13,18 @@
   left: 5%;
 }
 
+.Container__Header {
+  color: black;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  margin: 0 auto;
+}
+
 .Container__Field {
   padding: 0.3rem;
   margin: 1rem;
   height: 80%;
   width: 80%;
+  font-size: 25px;
 }
 
 .Container__Button_Submit {

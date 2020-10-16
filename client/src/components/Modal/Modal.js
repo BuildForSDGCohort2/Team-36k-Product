@@ -15,10 +15,7 @@ export class Modal extends Component {
   };
 
   onSubmit = () => {
-    // console.log("Submitted: " + this.state.complaint);
-
     this.props.show();
-
     // Post to the users prescription column
     if (this.id !== null) {
       // Add prescriptin to our database column
@@ -39,17 +36,22 @@ export class Modal extends Component {
 
     // Clear the state after submission
     this.setState({ complaint: "" });
-
     this.props.submitted();
   };
+
+  onRecordClick = () =>{
+    console.log("Starting Recording");
+  }
 
   render() {
     return (
       <div>
         <div className={classes.Container}>
+          {/* <h3 className={classes.Container__Header}>Please Enter Your Ailments separated by commas</h3> */}
           <textarea
             className={classes.Container__Field}
-            placeholder="What is wrong with you?"
+            placeholder="Enter Your Complaints Separated by Commas
+            Eg. head-ache, pains, nsomnia, cold, flu..."
             name="complaint"
             value={this.state.complaint}
             onChange={(e) => this.onChange(e)}
@@ -67,6 +69,7 @@ export class Modal extends Component {
               className={classes.Container__Button_Switch}
               type="button"
               value="Record"
+              onClick={() => this.onRecordClick()}
             />
           </div>
         </div>
